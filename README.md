@@ -4,6 +4,7 @@ Campus Assignment 😂
 ## Basic usage
 
 **Create Table**
+```sql
 create table if not exists participants (
 	id serial primary key,
 	name varchar(100) not null default '',
