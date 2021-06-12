@@ -347,17 +347,14 @@ public class DashboardUI extends JFrame {
         IfaceReportCardRepository repo = new ReportCardRepository(entityManager);
         List<ReportCard> reportCards = repo.getReportCards();
         
-        File reportFile = new File(".");
         try {
-            String dir = reportFile.getCanonicalPath() + "/src/main/java/com/unindra/smartbrain/ui/reportCard/";
-            JasperDesign design = JRXmlLoader.load(dir + "reportCard.jrxml");
-            JasperReport report = JasperCompileManager.compileReport(design);
+            JasperReport report = JasperCompileManager.compileReport(getClass().getResourceAsStream("/reports/reportCard.jrxml"));
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(reportCards);
             
             JasperPrint jp = JasperFillManager.fillReport(report, new HashMap(), dataSource);
             
             JasperViewer.viewReport(jp); 
-        } catch (IOException | JRException | java.lang.NoClassDefFoundError ex) {
+        } catch (JRException | java.lang.NoClassDefFoundError ex) {
             JOptionPane.showMessageDialog(null, "\nData Tidak Ditemukan\n" + ex, "Kesalahan", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_printButtonMousePressed

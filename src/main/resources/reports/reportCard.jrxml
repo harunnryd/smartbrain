@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportCard" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c3a53ca4-d7d6-47b3-bc1e-90edfd161e1e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select rc.*, p.name as participant_name, i.name as instructor_name, c.name as course_name from report_cards rc
+inner join participants p on rc.participant_id = p.id
+inner join instructors i on rc.instructor_id = i.id
+inner join courses c on rc.course_id = c.id]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="instructorId" class="java.lang.Integer"/>
+	<field name="participantId" class="java.lang.Integer"/>
+	<field name="courseId" class="java.lang.Integer"/>
+	<field name="schoolYear" class="java.lang.String"/>
+	<field name="score" class="java.lang.Integer"/>
+	<field name="participantName" class="java.lang.String"/>
+	<field name="instructorName" class="java.lang.String"/>
+	<field name="courseName" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="188" y="27" width="134" height="30" uuid="7fdad8a2-eb05-45e4-a04f-1c000e6bd279"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Rapor Peserta]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="100" height="20" uuid="af63227a-7945-4148-8885-f632aa331075"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Peserta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="101" y="0" width="100" height="20" uuid="6549bb45-c14e-47c6-b66f-45a803330277"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Pengajar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="201" y="0" width="100" height="20" uuid="86b89c3b-bf23-4562-a7ad-d4b6f457f0e3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Kursus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="0" width="100" height="20" uuid="7decc603-9c2c-4ab8-bf61-8a6297ce6edd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nilai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="0" width="100" height="20" uuid="f7cae522-d234-4c08-98f3-496b15139120"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tahun Ajaran]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="100" height="20" uuid="cb81681b-93be-4202-9932-1574045beb93"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="101" y="0" width="100" height="20" uuid="5a8810a9-e785-4b4c-86c9-6bdde2498061"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="201" y="0" width="100" height="20" uuid="d00059fa-8fc7-47e4-bcbf-f5df1806103d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="301" y="0" width="100" height="20" uuid="56ad6a36-2ad3-450c-a561-0978bc2df978"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="401" y="0" width="100" height="20" uuid="176bb9c7-feb7-44d4-b8b2-9d3ed55fdf0b"/>
+			</rectangle>
+			<textField>
+				<reportElement x="1" y="0" width="100" height="20" uuid="81d00a4f-f09f-483a-95f0-19acaa780fc8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{participantName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="0" width="100" height="20" uuid="963ff28e-96eb-49bc-8875-bdb9abc124c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{instructorName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="0" width="100" height="20" uuid="8c3b61c7-e20b-41af-8bae-b09f0cad3cf4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{courseName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="0" width="100" height="20" uuid="914f2bbf-64d8-4a62-a39f-da979bb1e6fb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{score}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="100" height="20" uuid="176450a3-abd4-4749-b649-e577df929a83"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{schoolYear}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="401" y="0" width="100" height="20" uuid="d27ab757-25a8-4520-b471-8518ad724b8a"/>
+				<text><![CDATA[SmartBrain]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="25" splitType="Stretch"/>
+	</summary>
+</jasperReport>
