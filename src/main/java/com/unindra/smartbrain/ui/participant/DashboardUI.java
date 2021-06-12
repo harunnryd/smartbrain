@@ -64,7 +64,6 @@ public class DashboardUI extends JFrame {
     private void initComponents() {
 
         popupMenu = new javax.swing.JPopupMenu();
-        itemCreate = new javax.swing.JMenuItem();
         itemUpdate = new javax.swing.JMenuItem();
         itemDetail = new javax.swing.JMenuItem();
         itemDelete = new javax.swing.JMenuItem();
@@ -77,14 +76,6 @@ public class DashboardUI extends JFrame {
         ReportCardPageButton = new javax.swing.JButton();
         coursePageButton = new javax.swing.JButton();
         createButton = new javax.swing.JButton();
-
-        itemCreate.setText("Add");
-        itemCreate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemCreateActionPerformed(evt);
-            }
-        });
-        popupMenu.add(itemCreate);
 
         itemUpdate.setText("Edit");
         itemUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -250,15 +241,6 @@ public class DashboardUI extends JFrame {
         }
     }//GEN-LAST:event_tableParticipantMouseReleased
 
-    private void itemCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCreateActionPerformed
-        JFrame frame = new FormCreateUI();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // frame.getContentPane().add(mainPanel); // or whatever...
-        frame.pack();
-        frame.setLocationRelativeTo(null);  // *** this will center your app ***
-        frame.setVisible(true);
-    }//GEN-LAST:event_itemCreateActionPerformed
-
     private void itemDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDeleteActionPerformed
         int selectedRow = tableParticipant.getSelectedRow();
         
@@ -372,7 +354,6 @@ public class DashboardUI extends JFrame {
     private javax.swing.JButton coursePageButton;
     private javax.swing.JButton createButton;
     private javax.swing.JButton instructorPageButton;
-    protected javax.swing.JMenuItem itemCreate;
     protected javax.swing.JMenuItem itemDelete;
     protected javax.swing.JMenuItem itemDetail;
     protected javax.swing.JMenuItem itemUpdate;
