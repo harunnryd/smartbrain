@@ -343,7 +343,7 @@ public class DashboardUI extends JFrame {
         frame.setVisible(true);    }//GEN-LAST:event_createButtonMousePressed
 
     private void printButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_printButtonMousePressed
-                EntityManager entityManager = new EntityManager();
+        EntityManager entityManager = new EntityManager();
         IfaceReportCardRepository repo = new ReportCardRepository(entityManager);
         List<ReportCard> reportCards = repo.getReportCards();
         

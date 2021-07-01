@@ -19,7 +19,7 @@ public class EntityManager {
     public static Connection connectPgSQL() {
         try {
             Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/smartbrain", "temporal", "temporal");
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/temporal", "postgres", "admin@123");
             return conn;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
